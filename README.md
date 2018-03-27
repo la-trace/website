@@ -1,4 +1,4 @@
-# la-trace-v3
+# la-trace-v3 [![Build Status](https://travis-ci.org/la-trace/website.svg?branch=master)](https://travis-ci.org/la-trace/website)
 
 > la-trace.com
 
