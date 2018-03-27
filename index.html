@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>la-trace.com</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+      <nav class="navbar menu-dark" role="navigation" aria-label="main navigation">
+          <div class="container">
+             <div class="navbar-brand">
+                <router-link to="/home" class="navbar-item is-link logo">la-<span class="green">trace</span>.com</router-link>
+            </div>
+            <div class="navbar-start">
+              <router-link to="/search" class="navbar-item">{{ $t("menu.search") }}</router-link>
+              <a href="https://la-trace.github.io/" class="navbar-item" target="_blank">{{ $t("menu.blog") }}</a>
+              <router-link to="/upload" class="navbar-item" v-if="isLogged()">{{ $t("menu.upload") }}</router-link>
+              <router-link to="/login" class="navbar-item" v-if="isNotLogged()">{{ $t("menu.login") }}</router-link>
+              <!--router-link to="/prepare" class="navbar-item">Prepare</router-link-->
+              <!--router-link to="/register" class="navbar-item" v-if="isNotLogged()">Register</router-link-->
+            </div>
+            <div class="navbar-end">
+              <!--div class="navbar-item" v-if="isLogged()">
+                <span class="icon">
+                  <i class="fa fa-user"></i>
+                </span>
+                <router-link to="/profile">Profile</router-link>
+              </div-->
+              <div class="navbar-item" v-if="isLogged()">
+                <a @click="signOut()">{{ $t("menu.logout") }}</a>
+              </div>
+            </div>
+        </div>
+      </nav>
+    <router-view></router-view>
+
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+</html>

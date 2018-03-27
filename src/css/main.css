@@ -1,0 +1,65 @@
+html, body, #app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  height: auto;
+  width: 100%;
+  background-color: #F5F5F5;
+}
+
+.logo {
+  font-family: 'Mukta Mahee', sans-serif;
+  font-size: 24px;
+}
+
+.green {
+  color: #6FB919;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+  transition: height .3s;
+  background:#fff;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.ct-area {
+    fill-opacity: 0.8!important
+}
+
+.track-padding {
+  padding: 10px 0 0px 10px
+}
+
+.small-text {
+  font-size:12px
+}
+
+.block {
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 0 1px 1px #cfcfcf;
+  color: #5a5a5a;
+  background: #FFF;
+}
+
+.padded {
+  padding: 15px
+}
+
+#map {
+  height: 100%;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}

@@ -1,0 +1,19 @@
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+$nav: #192532;
+
+@import "~bulma/sass/utilities/derived-variables.sass";
+$addColors: (
+
+);
+$colors: map-merge($colors, $addColors);
+
+.menu-dark {
+    background-color: $nav!important;
+    a {
+        color: #FFF
+    }
+}
+
+@import '~bulma/bulma';
