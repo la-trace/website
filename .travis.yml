@@ -1,0 +1,9 @@
+language: node_js
+node_js: 9
+
+install:
+  - yarn install --only=production
+  - yarn run build
+
+script:
+  - yarn run build
