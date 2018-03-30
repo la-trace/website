@@ -7,7 +7,7 @@
           <span class="file-icon">
             <i class="fa fa-upload"></i>
           </span>
-          <span class="file-label is-info">Choose a file…</span>
+          <span class="file-label is-info">{{ $t("track_edit.choose_a_file") | toTitle }}</span>
         </span>
       </label>
     </div>
@@ -27,8 +27,8 @@
           <td>{{pic.width}} x {{pic.height}} px</td>
           <td><i class="fa fa-check" aria-hidden="true" v-if="pic.position"></i></td>
           <td>
-            <a class="button is-danger" @click="deletePic(pic.id)">Delete</a>
-            <a class="button is-info" @click="updateCaption(pic.id, pic.caption)">Save Caption</a>
+            <a class="button is-danger" @click="deletePic(pic.id)">{{ $t("common.delete") | toTitle }}</a>
+            <a class="button is-info" @click="updateCaption(pic.id, pic.caption)">{{ $t("common.save") | toTitle }}</a>
           </td>
         </tr>
       </tbody>

@@ -24,6 +24,7 @@ import auth from 'components/auth'
 import './scss/main.scss'
 
 import {messages} from './languages/ressources.js'
+import Filters from './mixins/filters'
 
 Vue.use(VueRouter)
 Vue.use(VueHighcharts)
@@ -158,6 +159,7 @@ const store = new Vuex.Store({
 new Vue({
   i18n,
   router,
+  mixins: [Filters],
   data () {
     return {
     }

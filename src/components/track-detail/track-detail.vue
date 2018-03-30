@@ -72,8 +72,8 @@
         <p v-html="track.description"></p>
         <hr>
         <div v-if="isOwner">
-          <router-link :to="{path: '/track/edit/' + track.id}" class="button is-info is-fullwidth">Editer</router-link>
-          <a class="button is-danger is-fullwidth margin" @click="deleteTrack(track.id)">Delete</a>
+          <router-link :to="{path: '/track/edit/' + track.id}" class="button is-info is-fullwidth">{{ $t('track.edit') | toTitle }}</router-link>
+          <a class="button is-danger is-fullwidth margin" @click="deleteTrack(track.id)">{{ $t('common.delete') | toTitle }}</a>
           <hr>
         </div>
         <p><strong>{{ $t('track.start') }}</strong> : {{track.startAddress.city}}</p>
@@ -89,9 +89,9 @@
           </div>
         </div>
         <hr>
-        <router-link :to="{path: getSearchLink}" class="button is-info is-fullwidth">{{ $t('track.search_around') }}</router-link>
+        <router-link :to="{path: getSearchLink}" class="button is-info is-fullwidth">{{ $t('track.search_around') | toTitle }}</router-link>
         <br>
-        <a @click="download(track.id)" class="button is-info is-fullwidth">{{ $t('track.download') }}</a>
+        <a @click="download(track.id)" class="button is-info is-fullwidth">{{ $t('track.download') | toTitle }}</a>
         <br>
         <img :src="getImageLink">
       </div>

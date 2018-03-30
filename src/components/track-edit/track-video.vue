@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="field" v-if="!videoURL">
-      <input class="input is-large" type="text" placeholder="Copy the URL of your video" v-model="link">
+      <input class="input is-large" type="text" :placeholder="$t('track_edit.copy_video_url') | toTitle " v-model="link">
       <div class="notification is-danger margin" v-if="error.length > 0">{{error}}</div>
     </div>
     <div v-else>
@@ -9,7 +9,7 @@
         <div class="column is-half">
           <p><a :href="videoURL">{{videoURL}}</a></p>
           <iframe :src="videoURL" width="100%" height="400" frameborder="0" class="margin"></iframe>
-          <a class="button is-danger is-fullwidth" @click="deleteVideo()">Delete Video</a>
+          <a class="button is-danger is-fullwidth" @click="deleteVideo()">{{ $t('common.delete') | toTitle }}</a>
         </div>
       </div> 
     </div>
@@ -20,11 +20,12 @@
 import api from '../../mixins/api'
 import Parser from 'js-video-url-parser'
 import Video from '../../services/video-link-generator'
+import Filters from '../../mixins/filters'
 
 const providers = ['vimeo', 'youtube']
 
 export default {
-  mixins: [api],
+  mixins: [api, Filters],
   props: ['id'],
   data () {
     return {

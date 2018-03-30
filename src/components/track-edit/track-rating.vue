@@ -33,7 +33,7 @@
 
     <div class="columns is-centered">
       <div class="column is-half">
-        <a class="button is-info is-fullwidth" @click="save">Sauvegarder</a>
+        <a class="button is-info is-fullwidth" @click="save">{{ $t("common.save") | toTitle }}</a>
       </div>
     </div>
   </div>
@@ -42,10 +42,11 @@
 import StarRating from 'vue-star-rating'
 import api from '../../mixins/api'
 import {criterions} from '../../services/criterions'
+import Filters from '../../mixins/filters'
 
 export default {
   props: ['id'],
-  mixins: [api],
+  mixins: [api, Filters],
   data () {
     return {
       rating: {},
