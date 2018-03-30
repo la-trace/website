@@ -1,16 +1,16 @@
 <template>
   <div>
-    <a class="button is-info" @click="newPoi()">New</a>
+    <a class="button is-info" @click="newPoi()">{{ $t("common.new") | toTitle }}</a>
     <div id="wrapper" class="is-padded">
       <div id="map"></div>
     </div>
     <div v-if="editMode" class="is-padded">
       <div class="columns">
         <div class="column">
-          <a class="button is-info is-fullwidth" @click="savePoi">Sauvegarder</a>
+          <a class="button is-info is-fullwidth" @click="savePoi">{{ $t("common.save") | toTitle }}</a>
         </div>
         <div class="column">
-          <a class="button is-danger is-fullwidth" @click="cancelEdit">Cancel</a>
+          <a class="button is-danger is-fullwidth" @click="cancelEdit">{{ $t("common.cancel") | toTitle }}</a>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <b-modal :active.sync="modal" has-modal-card>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Choose icon</p>
+          <p class="modal-card-title">{{ $t("track_edit.choose_icon") | toTitle }}</p>
         </header>
         <section class="modal-card-body">
           <a class="button" v-for="icon in icons" @click="selectIcon(icon)">
@@ -32,11 +32,11 @@
 
     <table class="table is-fullwidth" v-if="!editMode">
       <thead>
-        <th>Caption</th>
-        <th>Longitude</th>
-        <th>Latitude</th>
-        <th>Icon</th>
-        <th>Actions</th>
+        <th>{{ $t("track_edit.caption") | toTitle }}</th>
+        <th>{{ $t("track_edit.longitude") | toTitle }}</th>
+        <th>{{ $t("track_edit.latitude") | toTitle }}</th>
+        <th>{{ $t("track_edit.icon") | toTitle }}</th>
+        <th>{{ $t("track_edit.actions") | toTitle }}</th>
       </thead>
       <tbody>
         <tr v-for="(poi, idx) in pois">
@@ -47,10 +47,10 @@
             <a class="button is-primary" @click="chooseIcon(poi.id)">Icon</a>
           </td>
           <td>
-            <a class="button is-info" @click="edit(idx, poi)">Move</a>
-            <a class="button is-info" @click="center(poi)">Center</a>
-            <a class="button is-info" @click="updateCaption(poi)">Save Caption</a>
-            <a class="button is-danger" @click="deletePoi(poi.id)">Delete</a>
+            <a class="button is-info" @click="edit(idx, poi)">{{ $t("track_edit.move") | toTitle }}</a>
+            <a class="button is-info" @click="center(poi)">{{ $t("track_edit.center") | toTitle }}</a>
+            <a class="button is-info" @click="updateCaption(poi)">{{ $t("track_edit.save") | toTitle }}</a>
+            <a class="button is-danger" @click="deletePoi(poi.id)">{{ $t("common.delete") | toTitle }}</a>
           </td>
         </tr>
       </tbody>
@@ -62,10 +62,11 @@
 import cloneDeep from 'lodash.clonedeep'
 import api from '../../mixins/api'
 import map from '../../mixins/map'
+import Filters from '../../mixins/filters'
 
 export default {
   props: ['trackId'],
-  mixins: [api, map],
+  mixins: [api, map, Filters],
   mounted () {
     this.initMap()
     this.loadPoisAndDisplay()

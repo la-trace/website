@@ -1,6 +1,7 @@
 <script>
 export default {
   filters: {
+    toTitle: str => str.charAt(0).toUpperCase() + str.substring(1),
     toFixed: function (v, n) {
       if (v) {
         return v.toFixed(n)

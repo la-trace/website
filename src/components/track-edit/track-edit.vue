@@ -2,29 +2,29 @@
   <div class="container">
     <div class="tabs">
       <ul>
-        <li @click="setTab(1)"><a>Description</a></li>
-        <li @click="setTab(2)"><a>Pictures</a></li>
-        <li @click="setTab(3)"><a>Videos</a></li>
-        <li @click="setTab(4)"><a>Rating</a></li>
-        <li @click="setTab(5)"><a>POIs</a></li>
-        <li><a :href="'#/track/' + id">Return to the track page</a></li>
+        <li @click="setTab(1)"><a>{{ $t("track_edit.description") | toTitle }}</a></li>
+        <li @click="setTab(2)"><a>{{ $t("track_edit.pictures") | toTitle }}</a></li>
+        <li @click="setTab(3)"><a>{{ $t("track_edit.video") | toTitle }}</a></li>
+        <li @click="setTab(4)"><a>{{ $t("track_edit.rating")| toTitle }}</a></li>
+        <li @click="setTab(5)"><a>{{ $t("track_edit.pois") | toTitle }}</a></li>
+        <li><a :href="'#/track/' + id">{{ $t("track_edit.back") | toTitle }}</a></li>
       </ul>
     </div>
 
     <div id="tab-1" v-if="tab===1">
       <div class="field">
-        <label class="label">Name</label>
+        <label class="label">{{ $t("track_edit.name") | toTitle }}</label>
         <p class="control">
           <input class="input" type="text" placeholder="Normal input" v-model="track.name">
         </p>
       </div>
       <div class="field">
-        <label class="label">Description</label>
+        <label class="label">{{ $t("track_edit.description") | toTitle }}</label>
         <p class="control">
           <textarea class="textarea" placeholder="Normal textarea" rows="10" v-model="track.description"></textarea>
         </p>
       </div>
-      <a class="button is-info" @click="save(track.id)">Sauvegarder</a>
+      <a class="button is-info" @click="save(track.id)">{{ $t("common.save") | toTitle }}</a>
     </div>
 
     <div id="tab-2" v-if="tab===2">
@@ -51,9 +51,10 @@ import TrackPictures from './track-pictures'
 import PoisEdit from './track-poi-edit'
 import TrackVideo from './track-video'
 import TrackRating from './track-rating'
+import Filters from '../../mixins/filters'
 
 export default {
-  mixins: [api],
+  mixins: [api, Filters],
   data () {
     return {
       id: null,

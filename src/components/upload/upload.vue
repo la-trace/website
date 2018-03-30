@@ -6,28 +6,28 @@
               <div class="step">
                   <div class="step-image"><span></span></div>
                   <div class="step-current">{{ $t('upload.step_1') }}</div>
-                  <div class="step-description">{{ $t('upload.upload_file') }}</div>
+                  <div class="step-description">{{ $t('upload.upload_file') | toTitle }}</div>
               </div>
           </li>
           <li style="width:25%;" v-bind:class="{activated: step > 1}">
               <div class="step">
                   <div class="step-image"><span></span></div>
                   <div class="step-current">{{ $t('upload.step_2') }}</div>
-                  <div class="step-description">{{ $t('upload.add_description') }}</div>
+                  <div class="step-description">{{ $t('upload.add_description') | toTitle }}</div>
               </div>
           </li>
           <li style="width:25%;" v-bind:class="{activated: step > 2}">
               <div class="step">
                   <div class="step-image"><span></span></div>
                   <div class="step-current">{{ $t('upload.step_3') }}</a></div>
-                  <div class="step-description">{{ $t('upload.rating') }}</div>
+                  <div class="step-description">{{ $t('upload.rating') | toTitle }}</div>
               </div>
           </li>
           <li style="width:25%;" v-bind:class="{activated: step > 3}">
               <div class="step">
                   <div class="step-image"><span></span></div>
                   <div class="step-current">{{ $t('upload.step_4') }}</div>
-                  <div class="step-description">{{ $t('upload.summary_and_publish') }}</div>
+                  <div class="step-description">{{ $t('upload.summary_and_publish') | toTitle }}</div>
             </div>
           </li>
       </ul>
@@ -58,18 +58,18 @@
     </div>
 
     <div id="main-upload" class="has-text-centered step-1" v-if="step === 1">
-      <div class="notification is-success" v-if="analyzed">{{ $t('common.operation_successful') }}</div>
+      <div class="notification is-success" v-if="analyzed">{{ $t('common.operation_successful') | toTitle }}</div>
       <table class="table is-fullwidth">
         <tbody>
           <tr>
             <td>{{ $t('upload.file') }}<br>
-              <span class="is-size-7">{{ $t('upload.file_desc') }}</span>
+              <span class="is-size-7">{{ $t('upload.file_desc') | toTitle }}</span>
             </td>
             <td>{{track.info.fileName}}</td>
           <tr>
           <tr>
             <td>{{ $t('upload.number_of_points') }}<br>
-              <span class="is-size-7">{{ $t('upload.number_of_points_desc') }}</span>
+              <span class="is-size-7">{{ $t('upload.number_of_points_desc') | toTitle }}</span>
             </td>
             <td>{{track.info.nbOfPoints}}</td>
           <tr>
@@ -133,11 +133,11 @@
     </div>
     <div class="columns is-centered" v-if="step > 0">
         <div class="column is-one-quarter">
-          <a class="button is-info is-fullwidth" @click="next()" v-if="step < 4" :disabled="cantContinue">{{ $t('upload.continue') }}</a>
-          <a class="button is-info is-fullwidth" @click="save()" v-else="">{{ $t('upload.save') }}</a>
+          <a class="button is-info is-fullwidth" @click="next()" v-if="step < 4" :disabled="cantContinue">{{ $t('upload.continue') | toTitle }}</a>
+          <a class="button is-info is-fullwidth" @click="save()" v-else>{{ $t('common.save') | toTitle }}</a>
         </div>
         <div class="column is-one-quarter">
-          <a class="button is-danger is-fullwidth" @click="reset()">{{ $t('upload.cancel') }}</a>
+          <a class="button is-danger is-fullwidth" @click="reset()">{{ $t('upload.cancel') | toTitle }}</a>
         </div>
     </div>
   </div>
