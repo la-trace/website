@@ -6,9 +6,22 @@ export const messages = {
     },
     common: {
       delete: 'delete',
+      email: 'email',
+      error_occured: 'an error occured',
+      name: 'name',
       new: 'new',
       operation_successful: 'operation succesful',
+      password: 'password',
       save: 'save'
+    },
+    register: {
+      account_created: 'Account created !',
+      email_invalid: 'email address is invalid',
+      field_cant_be_empty: 'field can\'t be empty',
+      please_correct_errors: 'please correct errors',
+      account_already_exists: 'this account already exists',
+      retype_password: 'type again your password',
+      passwords_not_match: 'password does not match'
     },
     footer: {
       home: 'home',
@@ -56,6 +69,7 @@ export const messages = {
       home: 'Home',
       login: 'Login',
       logout: 'Logout',
+      register: 'register',
       search: 'Search',
       upload: 'Upload'
     },
@@ -96,8 +110,21 @@ export const messages = {
     common: {
       delete: 'supprimer',
       new: 'nouveau',
+      email: 'email',
+      error_occured: 'une erreur est survenue',
+      name: 'name',
       operation_successful: 'opération réussie',
+      password: 'password',
       save: 'sauver'
+    },
+    register: {
+      account_created: 'Votre compte a bien été créé !',
+      email_invalid: 'l\'adresse email n\'est pas correct',
+      field_cant_be_empty: 'ce champ doit être rempli',
+      please_correct_errors: 'merci de corriger les erreurs',
+      account_already_exists: 'ce compte existe déjà',
+      retype_password: 'taper à nouveau votre mot de passe',
+      passwords_not_match: 'les mots de passe sont différents'
     },
     footer: {
       home: 'accueil',
@@ -145,6 +172,7 @@ export const messages = {
       home: 'accueil',
       login: 'login',
       logout: 'logout',
+      register: 'Créer un compte',
       search: 'rechercher',
       upload: 'upload'
     },

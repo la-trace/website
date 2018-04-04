@@ -21,6 +21,7 @@ import traxeditor from 'components/trax-editor'
 import upload from 'components/upload/upload'
 import login from 'components/login/login'
 import auth from 'components/auth'
+import register from 'components/register/register'
 import './scss/main.scss'
 
 import {messages} from './languages/ressources.js'
@@ -41,7 +42,8 @@ const routes = [
   { path: '/track/edit/:id', component: TrackEdit },
   { path: '/upload', component: upload },
   { path: '/login', component: login },
-  { path: '/prepare', component: traxeditor }
+  { path: '/prepare', component: traxeditor },
+  { path: '/register', component: register }
  // { path: '/elevation', component: elevation }
 ]
 
