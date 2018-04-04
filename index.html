@@ -17,7 +17,9 @@
               <router-link to="/search" class="navbar-item">{{ $t("menu.search") | toTitle }}</router-link>
               <a href="https://la-trace.github.io/" class="navbar-item" target="_blank">{{ $t("menu.blog") | toTitle }}</a>
               <router-link to="/upload" class="navbar-item" v-if="isLogged()">{{ $t("menu.upload") | toTitle }}</router-link>
+              <router-link to="/register" class="navbar-item" v-if="isNotLogged()">{{ $t("menu.register") | toTitle }}</router-link>
               <router-link to="/login" class="navbar-item" v-if="isNotLogged()">{{ $t("menu.login") | toTitle }}</router-link>
+
               <!--router-link to="/prepare" class="navbar-item">Prepare</router-link-->
               <!--router-link to="/register" class="navbar-item" v-if="isNotLogged()">Register</router-link-->
             </div>
