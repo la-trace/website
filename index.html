@@ -19,7 +19,6 @@
               <router-link to="/upload" class="navbar-item" v-if="isLogged()">{{ $t("menu.upload") | toTitle }}</router-link>
               <router-link to="/register" class="navbar-item" v-if="isNotLogged()">{{ $t("menu.register") | toTitle }}</router-link>
               <router-link to="/login" class="navbar-item" v-if="isNotLogged()">{{ $t("menu.login") | toTitle }}</router-link>
-
               <!--router-link to="/prepare" class="navbar-item">Prepare</router-link-->
               <!--router-link to="/register" class="navbar-item" v-if="isNotLogged()">Register</router-link-->
             </div>
@@ -31,7 +30,7 @@
                 <router-link to="/profile">Profile</router-link>
               </div-->
               <div class="navbar-item" v-if="isLogged()">
-                <a @click="signOut()">{{ $t("menu.logout") }}</a>
+                <a @click="signOut()">{{ $t("menu.logout") | toTitle }}</a>
               </div>
             </div>
         </div>
