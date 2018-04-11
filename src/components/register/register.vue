@@ -71,12 +71,7 @@
 <script>
 import api from '../../mixins/api'
 import filters from '../../mixins/filters'
-
-const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-function validateEmail (email) {
-  return re.test(String(email).toLowerCase())
-}
+import {validateEmail} from '../../services/email-validator'
 
 export default {
   mixins: [api, filters],
