@@ -26,6 +26,7 @@ export const messages = {
     footer: {
       home: 'home',
       login: 'login',
+      message_sent: 'message sent',
       send_message: 'send message',
       your_message: 'your message'
     },
@@ -129,6 +130,7 @@ export const messages = {
     footer: {
       home: 'accueil',
       login: 'login',
+      message_sent: 'message envoyé',
       send_message: 'envoyer',
       your_message: 'votre message'
     },

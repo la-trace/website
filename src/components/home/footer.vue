@@ -45,23 +45,23 @@
           <div class="column">
             <div class="field">
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="email">
+                <input class="input" type="email" placeholder="email" v-model="email" v-bind:class="{'is-danger': emailInvalid}">
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
-                <span class="icon is-small is-right">
+                <span class="icon is-small is-right" v-if="emailValid">
                   <i class="fa fa-check"></i>
                 </span>
               </div>
             </div>
             <div class="field">
               <div class="control">
-                <textarea class="textarea" :placeholder="$t('footer.your_message')"></textarea>
+                <textarea class="textarea" :placeholder="$t('footer.your_message')"  v-model="message"></textarea>
               </div>
             </div>
             <div class="field">
               <div class="control">
-                <button class="button is-primary">{{ $t("footer.send_message") }}</button>
+                <button class="button is-primary" @click="contact()">{{ $t("footer.send_message") }}</button>
               </div>
             </div>
           </div>
@@ -72,19 +72,48 @@
 <script>
 import api from '../../mixins/api'
 import filters from '../../mixins/filters'
+import {validateEmail} from '../../services/email-validator'
 
 export default {
   mixins: [api, filters],
   data () {
     return {
+      email: '',
+      message: '',
       version: process.env.COMMIT,
       lastTracks: []
+    }
+  },
+  computed: {
+    emailValid () {
+      return !this.emailInvalid
+    },
+    emailInvalid () {
+      return this.email.length > 0 && !validateEmail(this.email)
     }
   },
   mounted () {
     this.get('/last').then(data => {
       this.lastTracks = data.body
     })
+  },
+  methods: {
+    contact () {
+      const payload = {email: this.email, content: this.email}
+      this.post('contact', payload).then(data => {
+        this.email = ''
+        this.message = ''
+        this.$toast.open({
+          message: this.$i18n.t('footer.message_sent'),
+          type: 'is-success'
+        })
+      }, data => {
+        this.$toast.open({
+          message: this.$i18n.t('common.error_occured'),
+          type: 'is-danger'
+        })
+      })
+    }
   }
 }
 </script>
